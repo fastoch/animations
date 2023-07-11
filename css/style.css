@@ -29,7 +29,26 @@ main {
 div {
   width: 200px;
   height: 200px;
+  font-size: 2em;
   border: 1px solid black;
   display: grid;
   place-content: center;
+}
+
+div:first-child {
+  background-color: dodgerblue;
+  /* transform: translateX(-50%); */
+  /* transform: rotateX(180deg); */
+}
+
+div:nth-child(2) {
+  background-color: yellow;
+  /* transform: translateY(-2rem); */
+  /* transform: rotateZ(80deg); */
+}
+
+div:last-child {
+  background-color: limegreen;
+  /* transform: translate(100%, -2rem); */
+  /* transform: rotateY(180deg); */
 }
