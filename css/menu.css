@@ -76,12 +76,31 @@ header {
   /* -20px because it starts in the middle and the width is 40px */
 }
 
-/* show drop-down nav menu when hovering over the header or when having focus within the header */
+/* applies to 2nd layer of hamburger when hovering over the header or when having focus within the header */
 :is(header:hover, header:focus-within) .menu-icon {
+  background-color: transparent;
+  transform: rotate(720deg);
+  /* the above transformation adds a spin effect before turning our hamburger into a cross */
+}
+
+/* applies to 1st layer of hamburger when hovering over the header or when having focus within the header */
+:is(header:hover, header:focus-within) .menu-icon::before {
+  transform: translateX(-20px) rotate(45deg);
+}
+
+/* applies to 3rd layer of hamburger when hovering over the header or when having focus within the header */
+:is(header:hover, header:focus-within) .menu-icon::after {
+  transform: translateX(-20px) rotate(-45deg);
+}
+
+/* make drop-down nav menu visible */
+:is(header:hover, header:focus-within) nav {
+  display: block;
 }
 
 /* drop-down nav menu */
 nav {
+  background-color: var(--HEADER-BGCOLOR);
   display: none;
   transform-origin: top center; /* telling the transformation where to start */
   animation: showMenu 0.5s ease forwards; /* name duration timing-function fill-mode */
