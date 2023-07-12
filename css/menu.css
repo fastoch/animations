@@ -76,10 +76,15 @@ header {
   /* -20px because it starts in the middle and the width is 40px */
 }
 
+/* show drop-down nav menu when hovering over the header or when having focus within the header */
+:is(header:hover, header:focus-within) .menu-icon {
+}
+
 /* drop-down nav menu */
 nav {
-  display: block;
+  display: none;
   transform-origin: top center; /* telling the transformation where to start */
+  animation: showMenu 0.5s ease forwards; /* name duration timing-function fill-mode */
 }
 
 @keyframes showMenu {
@@ -120,4 +125,10 @@ nav a:any-link {
   color: var(--HEADER-COLOR);
   font-weight: bold;
   text-decoration: none; /* removes the underline from our links */
+}
+
+nav a:hover,
+nav a:focus {
+  transform: scale(1.2);
+  transition: all 0.3s;
 }
