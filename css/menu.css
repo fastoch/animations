@@ -75,3 +75,49 @@ header {
   transform: translate(-20px, 12px);
   /* -20px because it starts in the middle and the width is 40px */
 }
+
+/* drop-down nav menu */
+nav {
+  display: block;
+  transform-origin: top center; /* telling the transformation where to start */
+}
+
+@keyframes showMenu {
+  0% {
+    transform: scaleY(0);
+  }
+
+  80% {
+    transform: scaleY(1.2);
+    /* 20% beyond the intended size, which gives it a bit of a bounce */
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+nav li {
+  padding: 0.5rem;
+  border-top: 1px solid var(--HEADER-COLOR);
+}
+
+nav a {
+  display: block;
+  text-align: center; /* centers the content inside of the anchor tag */
+  width: 80%;
+  margin: auto; /* centers the anchor tag inside of the page */
+}
+
+/* for visited and unvisited links */
+nav a:any-link {
+  color: var(--HEADER-COLOR);
+  font-weight: bold;
+  text-decoration: none; /* removes the underline from our links */
+}
